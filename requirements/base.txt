@@ -16,3 +16,10 @@ django-crispy-forms==1.9.1  # https://github.com/django-crispy-forms/django-cris
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 # Django REST Framework
 djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
+
+
+### Slack
+slackclient
+
+### Survey and Reporting tools
+django-survey-and-report

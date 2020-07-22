@@ -73,10 +73,14 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "rest_framework",
     "rest_framework.authtoken",
+    "bootstrapform",
+    "survey"
+
 ]
 
 LOCAL_APPS = [
     "zerone_inc.users.apps.UsersConfig",
+    "zerone_inc.attend.apps.AttendConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -281,3 +285,16 @@ REST_FRAMEWORK = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+
+SLACK_CLIENT_ID = "1161265066660.1256055326228"
+SLACK_CLIENT_SECRET = "ed9f1364aebe5310716bbe0222e1cc51"
+SLACK_VERIFICATION_TOKEN = 'e4ut1qAX3Du33UWfU4PqDsuA'
+SLACK_BOT_USER_TOKEN = 'xoxb-1161265066660-1262510710433-gJeJnSVcOADDvCVEqGE9OBlU'
+
+REDIS_HOST = env.str("REDIS_HOST", default='redis')
+REDIS_PORT = env.int("REDIS_PORT", default=6379)
+REDIS_DB = env.int("REDIS_DB", default=1)
+
+# Survey Path
+CSV_DIRECTORY = str(ROOT_DIR / "docs/")

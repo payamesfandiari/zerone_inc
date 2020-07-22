@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="oAFjqYmHl8Jr8bvsyi9S70frkYDmxFVzYCclPGjMCq3J9fMYfqkPIYIK7yqSZYXw",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", ".ngrok.io"]
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -27,14 +27,20 @@ CACHES = {
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
+    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
 )
+DEFAULT_FROM_EMAIL = "p.esfandiari@uzer.one"
+EMAIL_HOST = "mail.uzer.one"
+EMAIL_HOST_PASSWORD = "God1sNowHere123"
+EMAIL_HOST_USER = "p.esfandiari@uzer.one"
+EMAIL_PORT = 587
+EMAIL_SUBJECT_PREFIX = "[ZerOne]- "
+EMAIL_USE_TLS = True
 
 # WhiteNoise
 # ------------------------------------------------------------------------------
 # http://whitenoise.evans.io/en/latest/django.html#using-whitenoise-in-development
 INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS  # noqa F405
-
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
@@ -49,7 +55,6 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
 INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
-
 
 # django-extensions
 # ------------------------------------------------------------------------------
