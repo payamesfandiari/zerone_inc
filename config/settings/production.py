@@ -151,8 +151,3 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
-REDIS_HOST=env.str("REDIS_HOST")
-REDIS_USERNAME = env.str("REDIS_USERNAME")
-REDIS_PASSWORD = env.str("REDIS_PASSWORD")
-REDIS_PORT = env.int("REDIS_PORT")
-REDIS_DB=env.str("REDIS_DB")

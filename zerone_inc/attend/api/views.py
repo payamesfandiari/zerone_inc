@@ -15,11 +15,7 @@ from zerone_inc.attend.models import Attendance
 logger = logging.getLogger(__name__)
 User = get_user_model()
 
-redis_instance = redis.StrictRedis(host=settings.REDIS_HOST,
-                                   username=settings.REDIS_USERNAME,
-                                   password=settings.REDIS_PASSWORD,
-                                   port=settings.REDIS_PORT,
-                                   db=settings.REDIS_DB)
+redis_instance = redis.StrictRedis.from_url(settings.REDIS_URL)
 
 
 class AttendanceView(APIView):
