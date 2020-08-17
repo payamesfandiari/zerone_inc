@@ -1,10 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <ul>
-  {% for s in object_list %}
-       <li> <a href="{{ s.survey.get_absolute_url  }}"> {{ s.survey.name }}</a></li>
-  {% endfor %}
-  </ul>
+  <section class="team-grid" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="intro">
+          <h2 class="text-uppercase text-center text-secondary">Please Answer to the Following Surveys</h2>
+          <hr class="star-dark mb-5"/>
+          <p class="text-center">Your answers are anonymous.</p>
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+            {% for s in object_list %}
+              <li class="list-group-item">
+                <a href="{{ s.survey.get_absolute_url }}"> {{ s.survey.name }}</a>
+              <p class="float-right">{{ s.survey.expire_date }}</p>
+              </li>
 
+            {% endfor %}
+          </ul>
+        </div>
+        </div>
+    </div>
+  </section>
 {% endblock %}

@@ -293,9 +293,6 @@ SLACK_CLIENT_SECRET = env.str("SLACK_CLIENT_SECRET")
 SLACK_VERIFICATION_TOKEN = env.str("SLACK_VERIFICATION_TOKEN")
 SLACK_BOT_USER_TOKEN = env.str("SLACK_BOT_USER_TOKEN")
 
-REDIS_HOST = env.str("REDIS_HOST", default='redis')
-REDIS_PORT = env.int("REDIS_PORT", default=6379)
-REDIS_DB = env.int("REDIS_DB", default=1)
-
 # Survey Path
 CSV_DIRECTORY = str(ROOT_DIR / "docs/")
+REDIS_URL = env.str("REDIS_URL")

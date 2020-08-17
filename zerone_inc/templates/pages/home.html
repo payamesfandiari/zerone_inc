@@ -1,1 +1,139 @@
 {% extends "base.html" %}
+{% load static %}
+{% block content %}
+<header class="masthead bg-primary text-white text-center" style="padding-top: 165px;">
+    <div class="container">
+      <img class="img-fluid d-block mx-auto mb-5" src="{% static 'images/zerone-logo.png'%}" style="width: 540px;">
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Data From The People - Data For The People</h2>
+    </div>
+</header>
+<!-- Start: #team -->
+<section class="team-grid" id="team">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-uppercase text-center text-secondary">Our Team</h2>
+            <hr class="star-dark mb-5" />
+            <p class="text-center">Here at ZerOne we look at brilliant, tech-savvy, innovative Data Scientists and Engineers.</p>
+        </div>
+        <div class="row people">
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/p.esfandiari.jpeg' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Payam <br />Esfandiari</h3>
+                        <p class="title">Founder</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/a.shahrestani.jpg' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Ali Shahrestani</h3>
+                        <p class="title">Senior devops Eng</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/profile.png' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Ahmad <br />Ebrahimi</h3>
+                        <p class="title">Product manager</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/profile.png' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Mahsa<br />Seifikar</h3>
+                        <p class="title">Lead Data Scientist</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row people">
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/m.shahriari.jpg' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Meysam<br />Shahriari</h3>
+                        <p class="title">Devops eng</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/h.alipour.jpg' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Hatef Alipour</h3>
+                        <p class="title">Data Engineer</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/a.hashemi.png' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Alireza Hashemi</h3>
+                        <p class="title">Data Scientist</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="background: url({% static 'images/a.moosavi.jpeg' %}) center / cover no-repeat;">
+                    <div class="cover">
+                        <h3 class="name">Alireza Moosavi</h3>
+                        <p class="title">Data Engineer</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: #team -->
+<section id="about" class="bg-primary text-white mb-0">
+    <div class="container">
+        <h2 class="text-uppercase text-center text-white">About</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+            <div class="col-lg-4 ml-auto">
+                <p class="lead">We are a team of young scientists and engineers looking to make a mark in this world. Our focus is to create Data tools in order to give our customers a simple way into their Data.&nbsp;</p>
+            </div>
+            <div class="col-lg-4 mr-auto">
+                <p class="lead">Whether you're a student looking to find your first job, a professional looking to hone your skillset, or a senior looking to share your knowledge, our team is the perfect place for you!</p>
+            </div>
+        </div>
+        <div class="text-center mt-4"><a class="btn btn-outline-light btn-xl" role="button" href="#"><i class="fa fa-paper-plane mr-2"></i><span>Apply Now!</span></a></div>
+    </div>
+</section>
+<section id="contact">
+    <div class="container">
+        <h2 class="text-uppercase text-center text-secondary mb-0">Contact US</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Name</label><input class="form-control" type="text" id="name" required="" placeholder="Name"><small class="form-text text-danger help-block"></small></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Email Address</label><input class="form-control" type="email" id="email" required="" placeholder="Email Address"><small class="form-text text-danger help-block"></small></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Phone Number</label><input class="form-control" type="tel" id="phone" required="" placeholder="Phone Number"><small class="form-text text-danger help-block"></small></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-5 pb-2"><textarea class="form-control" id="message" required="" placeholder="Message" rows="5"></textarea><small class="form-text text-danger help-block"></small></div>
+                    </div>
+                    <div id="success"></div>
+                    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
