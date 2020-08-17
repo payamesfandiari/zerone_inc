@@ -77,10 +77,13 @@ TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa F405
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
-    "DJANGO_DEFAULT_FROM_EMAIL", default="ZerOne Inc <noreply@uzer1.com>"
+    "DJANGO_DEFAULT_FROM_EMAIL", default="ZerOne Inc <hr@uzer.one>"
 )
-# https://docs.djangoproject.com/en/dev/ref/settings/#server-email
-SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
+EMAIL_HOST  = env.str("DJANGO_EMAIL_HOST")
+EMAIL_HOST_PASSWORD  = env.str("DJANGO_EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER  = env.str("DJANGO_EMAIL_HOST_USER")
+EMAIL_PORT  = env.int("DJANGO_EMAIL_PORT")
+EMAIL_USE_TLS  = env.bool("DJANGO_EMAIL_USE_TLS")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
 EMAIL_SUBJECT_PREFIX = env(
     "DJANGO_EMAIL_SUBJECT_PREFIX", default="[ZerOne Inc]"

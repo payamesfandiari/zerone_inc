@@ -29,13 +29,6 @@ CACHES = {
 EMAIL_BACKEND = env(
     "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
 )
-DEFAULT_FROM_EMAIL = "p.esfandiari@uzer.one"
-EMAIL_HOST = "mail.uzer.one"
-EMAIL_HOST_PASSWORD = "God1sNowHere123"
-EMAIL_HOST_USER = "p.esfandiari@uzer.one"
-EMAIL_PORT = 587
-EMAIL_SUBJECT_PREFIX = "[ZerOne]- "
-EMAIL_USE_TLS = True
 
 # WhiteNoise
 # ------------------------------------------------------------------------------
