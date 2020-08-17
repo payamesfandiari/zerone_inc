@@ -5,12 +5,12 @@ from typing import Sequence
 import pytest
 
 ROOT_DIR_PATH = Path(__file__).parent.resolve()
-PRODUCTION_DOTENVS_DIR_PATH = ROOT_DIR_PATH / ".envs" / ".local"
+PRODUCTION_DOTENVS_DIR_PATH = ROOT_DIR_PATH / ".envs" / ".production"
 PRODUCTION_DOTENV_FILE_PATHS = [
     PRODUCTION_DOTENVS_DIR_PATH / ".django",
     PRODUCTION_DOTENVS_DIR_PATH / ".postgres",
 ]
-DOTENV_FILE_PATH = ROOT_DIR_PATH / ".env"
+DOTENV_FILE_PATH = ROOT_DIR_PATH / ".envrc"
 
 
 def merge(
@@ -19,8 +19,14 @@ def merge(
     with open(output_file_path, "w") as output_file:
         for merged_file_path in merged_file_paths:
             with open(merged_file_path, "r") as merged_file:
-                merged_file_content = merged_file.read()
-                output_file.write(merged_file_content)
+                merged_file_content = merged_file.readlines()
+                for line in merged_file_content:
+                    if line.startswith('#'):
+                        output_file.write(line)
+                    elif line.strip() == '':
+                        continue
+                    else:
+                        output_file.write(f"export {line}")
                 if append_linesep:
                     output_file.write(os.linesep)
 
