@@ -16,7 +16,10 @@ logger = logging.getLogger(__name__)
 User = get_user_model()
 
 redis_instance = redis.StrictRedis(host=settings.REDIS_HOST,
-                                   port=settings.REDIS_PORT, db=settings.REDIS_DB)
+                                   username=settings.REDIS_USERNAME,
+                                   password=settings.REDIS_PASSWORD,
+                                   port=settings.REDIS_PORT,
+                                   db=settings.REDIS_DB)
 
 
 class AttendanceView(APIView):
