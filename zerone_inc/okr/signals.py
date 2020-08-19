@@ -1,8 +1,10 @@
 from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.dispatch import receiver, Signal
 from zerone_inc.okr.models import SurveyForUser
 
-from survey.models import Response
+from .models import Response
+
+survey_completed = Signal(providing_args=["instance", "data"])
 
 
 @receiver(post_save, sender=Response)

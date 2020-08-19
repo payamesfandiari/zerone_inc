@@ -1,0 +1,381 @@
+# django-survey-and-report's i18n file
+# This file is distributed under the MIT license.
+# Vlad M. <vladm.ru@gmail.com>, 2019.
+# Anton Melser <melser.anton@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 04:01+0000\n"
+"PO-Revision-Date: 2019-03-10 22:53+0230\n"
+"Last-Translator: b'  <vladm.ru@gmail.com>'\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Translated-Using: django-rosetta 0.9.2\n"
+
+#: dev/templates/base.html:3
+msgid "en"
+msgstr "ru"
+
+#: dev/templates/base.html:5
+msgid "DEVELOPMENT django-Survey"
+msgstr "Разработка django-Survey"
+
+#: survey/actions.py:13
+#, python-format
+msgid "%(count)d survey was successfully marked as published."
+msgid_plural "%(count)d surveys were successfully marked as published"
+msgstr[0] "опрос %(count)d успешно помечен как опубликованный."
+msgstr[1] "опросы %(count)d помечены как опубликованные."
+
+#: survey/actions.py:20
+msgid "Mark selected surveys as published"
+msgstr "Помечено как опублиовано"
+
+#: survey/exporter/csv/survey2csv.py:38
+msgid "Anonymous"
+msgstr "Анонимно"
+
+#: survey/exporter/csv/survey2csv.py:71
+msgid "user"
+msgstr ""
+
+#: survey/exporter/csv/survey2csv.py:115
+msgid "Export to CSV"
+msgstr ""
+
+#: survey/exporter/tex/question2tex.py:64
+msgid "with"
+msgstr "с"
+
+# there is a mistake in the EN singular and plural cases.
+# Entrevistado reffers to all surveyed.
+#: survey/exporter/tex/question2tex.py:66
+#, python-format
+msgid "%(min_cardinality)d respondants or more"
+msgid_plural "%(min_cardinality)d respondant or more"
+msgstr[0] "%(min_cardinality)d отвечает или более"
+msgstr[1] "%(min_cardinality)d отвечают или более"
+
+#: survey/exporter/tex/question2tex.py:78
+msgid "excluding"
+msgstr "за исключением"
+
+#: survey/exporter/tex/question2tex.py:83
+#: survey/exporter/tex/question2tex.py:117
+#: survey/exporter/tex/question2tex.py:120
+msgid "and"
+msgstr "и"
+
+#: survey/exporter/tex/question2tex.py:114
+#: survey/exporter/tex/question2tex.py:115
+msgid "or"
+msgstr "или"
+
+#: survey/exporter/tex/question2tex.py:129
+msgid "Repartition of answers"
+msgstr "Перераспределение ответов"
+
+#: survey/exporter/tex/question2tex_chart.py:72
+msgid "Left blank"
+msgstr "Оставить пустым"
+
+#: survey/exporter/tex/question2tex_chart.py:117
+#: survey/exporter/tex/question2tex_sankey.py:40
+msgid "for the question"
+msgstr "для вопроса"
+
+#: survey/exporter/tex/question2tex_chart.py:127
+msgid "No answers for this question."
+msgstr "Нет ответов для этого вопроса."
+
+#: survey/exporter/tex/question2tex_raw.py:26
+msgid "Participant"
+msgstr "Участник"
+
+#  as in "opposite of right"
+#: survey/exporter/tex/question2tex_sankey.py:40
+msgid "left"
+msgstr "не правильно"
+
+#: survey/exporter/tex/question2tex_sankey.py:42
+msgid "in relation with the question"
+msgstr "в связи с вопросом"
+
+# as in "opposite of left"
+#: survey/exporter/tex/question2tex_sankey.py:44
+msgid "right"
+msgstr "правильно"
+
+#: survey/exporter/tex/survey2tex.py:32
+msgid "Cannot generate PDF, we need 'xelatex' to be installed."
+msgstr ""
+
+#: survey/exporter/tex/survey2tex.py:80
+msgid "We could not render a chart because the type"
+msgstr "Мы не смогли отобразить диаграмму, потому что тип"
+
+#: survey/exporter/tex/survey2tex.py:83
+msgid "is not a standard type nor the path to an importable valid Question2Tex child class. Choose between 'raw', 'sankey', 'pie', 'cloud', 'square', 'polar' or 'package.path.MyQuestion2TexCustomClass'"
+msgstr "не является стандартным типом или путем к импортируемому допустимому текстовому дочернему классу Question2Tex. Выбрать между 'raw', 'sankey', 'pie', 'cloud', 'square', 'polar' o 'package.path.MyQuestion2TexCustomClass'"
+
+#: survey/exporter/tex/survey2tex.py:157
+msgid "No questions to display in this survey."
+msgstr ""
+
+#: survey/exporter/tex/survey2tex.py:187
+msgid "Cannot export multiple PDF, choose only one."
+msgstr ""
+
+#: survey/exporter/tex/survey2tex.py:196
+#, python-format
+msgid "Error during PDF generation: %s"
+msgstr ""
+
+#: survey/exporter/tex/survey2tex.py:203
+msgid "Export to PDF"
+msgstr ""
+
+#: survey/models/answer.py:23
+msgid "Question"
+msgstr "Вопрос"
+
+#: survey/models/answer.py:24
+msgid "Response"
+msgstr "Ответ"
+
+#: survey/models/answer.py:25 survey/models/response.py:27
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: survey/models/answer.py:26 survey/models/response.py:28
+msgid "Update date"
+msgstr "Дата обновления"
+
+#: survey/models/answer.py:27
+msgid "Content"
+msgstr "Содержание"
+
+#: survey/models/category.py:12 survey/models/survey.py:27
+msgid "Name"
+msgstr "Название"
+
+#: survey/models/category.py:13 survey/models/question.py:80
+#: survey/models/response.py:29
+msgid "Survey"
+msgstr "Тест"
+
+#: survey/models/category.py:14
+msgid "Display order"
+msgstr "Порядок отображения"
+
+#: survey/models/category.py:15 survey/models/survey.py:28
+msgid "Description"
+msgstr "Описание"
+
+#: survey/models/category.py:19
+msgid "category"
+msgstr "категория"
+
+#: survey/models/category.py:20
+msgid "categories"
+msgstr "категории"
+
+# "if the question type" repeated in english original
+#: survey/models/question.py:23
+msgid ""
+"The choices field is only used if the question type\n"
+"if the question type is 'radio', 'select', or\n"
+"'select multiple' provide a comma-separated list of\n"
+"options for this question ."
+msgstr ""
+"Поле выбора используется только в том случае, если тип вопроса\n"
+"если тип вопроса - 'radio', 'select' или\n"
+"'select multiple' предоставляет разделенный запятыми список\n"
+"вариантов этого вопроса ."
+
+#: survey/models/question.py:63
+msgid "text (multiple line)"
+msgstr "текст (многострочный)"
+
+#: survey/models/question.py:64
+msgid "short text (one line)"
+msgstr "короткий текст (однострочный)"
+
+#: survey/models/question.py:65
+msgid "radio"
+msgstr "radio"
+
+#: survey/models/question.py:66
+msgid "select"
+msgstr "выбор"
+
+#: survey/models/question.py:67
+msgid "Select Multiple"
+msgstr "Множественный выбор"
+
+#: survey/models/question.py:68
+msgid "Select Image"
+msgstr "выбор изображения"
+
+#: survey/models/question.py:69
+msgid "integer"
+msgstr "целое"
+
+#: survey/models/question.py:70
+msgid "float"
+msgstr ""
+
+#: survey/models/question.py:71
+msgid "date"
+msgstr ""
+
+#: survey/models/question.py:74
+msgid "Text"
+msgstr "Текст"
+
+#: survey/models/question.py:75
+msgid "Order"
+msgstr "Порядок"
+
+#: survey/models/question.py:76
+msgid "Required"
+msgstr "Требуемый"
+
+#: survey/models/question.py:78
+msgid "Category"
+msgstr "Категория"
+
+#: survey/models/question.py:81
+msgid "Type"
+msgstr "Тип"
+
+#: survey/models/question.py:82
+msgid "Choices"
+msgstr "Варианты"
+
+#: survey/models/question.py:85
+msgid "question"
+msgstr "вопрос"
+
+#: survey/models/question.py:86
+msgid "questions"
+msgstr "вопросы"
+
+#: survey/models/response.py:30
+msgid "User"
+msgstr "Пользователь"
+
+#: survey/models/response.py:31
+msgid "Interview unique identifier"
+msgstr "Уникальный идентификатор интервью"
+
+#: survey/models/response.py:34
+msgid "Set of answers to surveys"
+msgstr "Набор ответов на опросы"
+
+#: survey/models/response.py:35
+msgid "Sets of answers to surveys"
+msgstr "Наборы ответов на опросы"
+
+#: survey/models/survey.py:22
+msgid "By question"
+msgstr "По вопросам"
+
+#: survey/models/survey.py:23
+msgid "By category"
+msgstr "По категориям"
+
+#: survey/models/survey.py:24
+msgid "All in one page"
+msgstr "Все в одной странице"
+
+#: survey/models/survey.py:29
+msgid "Users can see it and answer it"
+msgstr "Пользователи могут увидеть его и ответить на него"
+
+#: survey/models/survey.py:30
+msgid "Only authenticated users can see it and answer it"
+msgstr "Только прошедшие проверку пользователи могут видеть его и отвечать на него"
+
+#: survey/models/survey.py:31
+msgid "Users can edit their answers afterwards"
+msgstr "Пользователи могут редактировать свои ответы впоследствии"
+
+#: survey/models/survey.py:33
+#, fuzzy
+#| msgid "Display order"
+msgid "Display method"
+msgstr "Порядок отображения"
+
+#: survey/models/survey.py:35
+msgid "Template"
+msgstr "Шаблон"
+
+#: survey/models/survey.py:36
+msgid "Publication date"
+msgstr "Дата публикации"
+
+#: survey/models/survey.py:37
+msgid "Expiration date"
+msgstr "дата удаления"
+
+#: survey/models/survey.py:40
+msgid "survey"
+msgstr "опрос"
+
+#: survey/models/survey.py:41
+msgid "surveys"
+msgstr "опросы"
+
+#: survey/templates/survey/completed.html:4
+#: survey/templates/survey/completed.html:7
+msgid "Survey completed"
+msgstr "Опрос завершен"
+
+#: survey/templates/survey/completed.html:8
+msgid "Sorry! Your already replied to our survey"
+msgstr "Простите! Вы уже ответили на наш опрос"
+
+#: survey/templates/survey/completed.html:9
+msgid "Back to survey list"
+msgstr "Вернуться к списку опросов"
+
+#: survey/templates/survey/confirm.html:4
+#: survey/templates/survey/confirm.html:7
+msgid "Survey submitted"
+msgstr "Опрос представлен"
+
+#: survey/templates/survey/confirm.html:10
+msgid "Thanks! Your answers have been saved"
+msgstr "Спасибо! Ваши ответы были сохранены"
+
+#: survey/templates/survey/confirm.html:14
+msgid "You can always come back and change them."
+msgstr "Вы всегда можете вернуться и изменить их."
+
+#: survey/templates/survey/list.html:6
+msgid "Welcome to the Django Survey app"
+msgstr "Добро пожаловать в Опросник"
+
+#: survey/templates/survey/list.html:10
+msgid "Take the Survey"
+msgstr "Принять участие в опросе"
+
+#: survey/templates/survey/survey.html:44
+msgid "Answer this part"
+msgstr "Ответьте на эту часть"
+
+#: survey/templates/survey/survey.html:57
+msgid "Questions"
+msgstr "Ответы"
+
+#: survey/templates/survey/survey.html:66
+msgid "I'm done!"
+msgstr "Я завершил!"

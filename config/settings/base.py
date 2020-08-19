@@ -74,8 +74,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "bootstrapform",
-    "survey"
-
 ]
 
 LOCAL_APPS = [
@@ -296,3 +294,14 @@ SLACK_BOT_USER_TOKEN = env.str("SLACK_BOT_USER_TOKEN")
 # Survey Path
 CSV_DIRECTORY = str(ROOT_DIR / "docs/")
 REDIS_URL = env.str("REDIS_URL")
+
+
+
+# Number of messages to display per page.
+MESSAGES_PER_PAGE = env.int("ROSETTA_MESSAGES_PER_PAGE", 10)
+
+USER_DID_NOT_ANSWER = env.str("USER_DID_NOT_ANSWER", "Left blank")
+SURVEY_DEFAULT_PIE_COLOR = env.str("SURVEY_DEFAULT_PIE_COLOR", "red!50")
+CHOICES_SEPARATOR = env.str("CHOICES_SEPARATOR", ",")
+EXCEL_COMPATIBLE_CSV = False
+DEFAULT_SURVEY_PUBLISHING_DURATION = 7

@@ -1,0 +1,370 @@
+# django-survey-and-report's Chinese i18n file
+# This file is distributed under the MIT license.
+# Zhu Sheng Li <digglife@gmail.com>, 2018.
+# Anton Melser <melser.anton@gmail.com>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 04:01+0000\n"
+"PO-Revision-Date: 2018-04-09 00:52+0000\n"
+"Last-Translator: Zhu Sheng Li <digglife@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: dev/templates/base.html:3
+msgid "en"
+msgstr "zh"
+
+#: dev/templates/base.html:5
+msgid "DEVELOPMENT django-Survey"
+msgstr "django-Survey 开发"
+
+#: survey/actions.py:13
+#, python-format
+msgid "%(count)d survey was successfully marked as published."
+msgid_plural "%(count)d surveys were successfully marked as published"
+msgstr[0] "%(count)d 件问卷成功标记为「已发布」"
+msgstr[1] "%(count)d 件问卷成功标记为「已发布」"
+
+#: survey/actions.py:20
+msgid "Mark selected surveys as published"
+msgstr "标记选择的问卷为「已发布」"
+
+#: survey/exporter/csv/survey2csv.py:38
+msgid "Anonymous"
+msgstr "匿名"
+
+#: survey/exporter/csv/survey2csv.py:71
+msgid "user"
+msgstr "用户"
+
+#: survey/exporter/csv/survey2csv.py:115
+msgid "Export to CSV"
+msgstr "导出为CSV"
+
+#: survey/exporter/tex/question2tex.py:64
+msgid "with"
+msgstr "和"
+
+#: survey/exporter/tex/question2tex.py:66
+#, python-format
+msgid "%(min_cardinality)d respondants or more"
+msgid_plural "%(min_cardinality)d respondant or more"
+msgstr[0] "%(min_cardinality)d 位参与者或更多"
+msgstr[1] "%(min_cardinality)d 位参与者或更多"
+
+#: survey/exporter/tex/question2tex.py:78
+msgid "excluding"
+msgstr "除了"
+
+#: survey/exporter/tex/question2tex.py:83
+#: survey/exporter/tex/question2tex.py:117
+#: survey/exporter/tex/question2tex.py:120
+msgid "and"
+msgstr "和"
+
+#: survey/exporter/tex/question2tex.py:114
+#: survey/exporter/tex/question2tex.py:115
+msgid "or"
+msgstr "或"
+
+#: survey/exporter/tex/question2tex.py:129
+msgid "Repartition of answers"
+msgstr "回答的重构"
+
+#: survey/exporter/tex/question2tex_chart.py:72
+msgid "Left blank"
+msgstr "留空"
+
+#: survey/exporter/tex/question2tex_chart.py:117
+#: survey/exporter/tex/question2tex_sankey.py:40
+msgid "for the question"
+msgstr "为此问题"
+
+#: survey/exporter/tex/question2tex_chart.py:127
+msgid "No answers for this question."
+msgstr "该问题尚无回答"
+
+#: survey/exporter/tex/question2tex_raw.py:26
+msgid "Participant"
+msgstr "参与者"
+
+#: survey/exporter/tex/question2tex_sankey.py:40
+msgid "left"
+msgstr "左"
+
+#: survey/exporter/tex/question2tex_sankey.py:42
+msgid "in relation with the question"
+msgstr "和此问题相关"
+
+#: survey/exporter/tex/question2tex_sankey.py:44
+msgid "right"
+msgstr "右"
+
+#: survey/exporter/tex/survey2tex.py:32
+msgid "Cannot generate PDF, we need 'xelatex' to be installed."
+msgstr "无法生成PDF，我们需要安装“ xelatex”。"
+
+#: survey/exporter/tex/survey2tex.py:80
+msgid "We could not render a chart because the type"
+msgstr "我们无法生成图表，因为类型"
+
+#: survey/exporter/tex/survey2tex.py:83
+msgid "is not a standard type nor the path to an importable valid Question2Tex child class. Choose between 'raw', 'sankey', 'pie', 'cloud', 'square', 'polar' or 'package.path.MyQuestion2TexCustomClass'"
+msgstr "既不是标准类型，也不是可导入的有效 Question2Tex 子类的路径。请在'raw', 'sankey', 'pie', 'cloud', 'square', 'polar' 或 'package.path.MyQuestion2TexCustomClass' 中选择。"
+
+#: survey/exporter/tex/survey2tex.py:157
+msgid "No questions to display in this survey."
+msgstr ""
+
+#: survey/exporter/tex/survey2tex.py:187
+msgid "Cannot export multiple PDF, choose only one."
+msgstr "无法导出多个PDF，只能选择一个。"
+
+#: survey/exporter/tex/survey2tex.py:196
+#, python-format
+msgid "Error during PDF generation: %s"
+msgstr "PDF生成期间发生错误：%s"
+
+#: survey/exporter/tex/survey2tex.py:203
+msgid "Export to PDF"
+msgstr "导出为PDF"
+
+#: survey/models/answer.py:23
+msgid "Question"
+msgstr "问题"
+
+#: survey/models/answer.py:24
+msgid "Response"
+msgstr "回答"
+
+#: survey/models/answer.py:25 survey/models/response.py:27
+msgid "Creation date"
+msgstr "创建日期"
+
+#: survey/models/answer.py:26 survey/models/response.py:28
+msgid "Update date"
+msgstr "更新日期"
+
+#: survey/models/answer.py:27
+msgid "Content"
+msgstr "内容"
+
+#: survey/models/category.py:12 survey/models/survey.py:27
+msgid "Name"
+msgstr "名字"
+
+#: survey/models/category.py:13 survey/models/question.py:80
+#: survey/models/response.py:29
+msgid "Survey"
+msgstr "问卷"
+
+#: survey/models/category.py:14
+msgid "Display order"
+msgstr "显示顺序"
+
+#: survey/models/category.py:15 survey/models/survey.py:28
+msgid "Description"
+msgstr "描述"
+
+#: survey/models/category.py:19
+msgid "category"
+msgstr "分类"
+
+#: survey/models/category.py:20
+msgid "categories"
+msgstr "分类"
+
+#: survey/models/question.py:23
+msgid ""
+"The choices field is only used if the question type\n"
+"if the question type is 'radio', 'select', or\n"
+"'select multiple' provide a comma-separated list of\n"
+"options for this question ."
+msgstr "选项栏仅在问题类型为「单选按钮」、「单项选择」和「多项选择」时有效。选项请用逗号隔开。"
+
+#: survey/models/question.py:63
+msgid "text (multiple line)"
+msgstr "文本（多行）"
+
+#: survey/models/question.py:64
+msgid "short text (one line)"
+msgstr "短文本（单行）"
+
+#: survey/models/question.py:65
+msgid "radio"
+msgstr "单选按钮"
+
+#: survey/models/question.py:66
+msgid "select"
+msgstr "单选框"
+
+#: survey/models/question.py:67
+msgid "Select Multiple"
+msgstr "复选框"
+
+#: survey/models/question.py:68
+msgid "Select Image"
+msgstr "选择图片"
+
+#: survey/models/question.py:69
+msgid "integer"
+msgstr "整数"
+
+#: survey/models/question.py:70
+msgid "float"
+msgstr ""
+
+#: survey/models/question.py:71
+msgid "date"
+msgstr "日期"
+
+#: survey/models/question.py:74
+msgid "Text"
+msgstr "文本"
+
+#: survey/models/question.py:75
+msgid "Order"
+msgstr "顺序"
+
+#: survey/models/question.py:76
+msgid "Required"
+msgstr "必填"
+
+#: survey/models/question.py:78
+msgid "Category"
+msgstr "分类"
+
+#: survey/models/question.py:81
+msgid "Type"
+msgstr "类型"
+
+#: survey/models/question.py:82
+msgid "Choices"
+msgstr "选择"
+
+#: survey/models/question.py:85
+msgid "question"
+msgstr "问题"
+
+#: survey/models/question.py:86
+msgid "questions"
+msgstr "问题"
+
+#: survey/models/response.py:30
+msgid "User"
+msgstr "用户"
+
+#: survey/models/response.py:31
+msgid "Interview unique identifier"
+msgstr "问卷的唯一标识"
+
+#: survey/models/response.py:34
+msgid "Set of answers to surveys"
+msgstr "问卷的几组回答"
+
+#: survey/models/response.py:35
+msgid "Sets of answers to surveys"
+msgstr "问卷的几组回答"
+
+#: survey/models/survey.py:22
+msgid "By question"
+msgstr "按问题显示"
+
+#: survey/models/survey.py:23
+msgid "By category"
+msgstr "按类别显示"
+
+#: survey/models/survey.py:24
+msgid "All in one page"
+msgstr "综合显示"
+
+#: survey/models/survey.py:29
+msgid "Users can see it and answer it"
+msgstr "用户可以浏览和回答"
+
+#: survey/models/survey.py:30
+msgid "Only authenticated users can see it and answer it"
+msgstr "只有认证用户可以浏览和回答"
+
+#: survey/models/survey.py:31
+msgid "Users can edit their answers afterwards"
+msgstr "用户可以随后编辑他们的答案"
+
+#: survey/models/survey.py:33
+msgid "Display method"
+msgstr "显示方式"
+
+#: survey/models/survey.py:35
+msgid "Template"
+msgstr "模板"
+
+#: survey/models/survey.py:36
+msgid "Publication date"
+msgstr "发布日期"
+
+#: survey/models/survey.py:37
+msgid "Expiration date"
+msgstr "截止日期"
+
+#: survey/models/survey.py:40
+msgid "survey"
+msgstr "问卷"
+
+#: survey/models/survey.py:41
+msgid "surveys"
+msgstr "问卷"
+
+#: survey/templates/survey/completed.html:4
+#: survey/templates/survey/completed.html:7
+msgid "Survey completed"
+msgstr "问卷已完成"
+
+#: survey/templates/survey/completed.html:8
+msgid "Sorry! Your already replied to our survey"
+msgstr "抱歉！您已经回答过我们的问卷了"
+
+#: survey/templates/survey/completed.html:9
+msgid "Back to survey list"
+msgstr "回到问卷列表"
+
+#: survey/templates/survey/confirm.html:4
+#: survey/templates/survey/confirm.html:7
+msgid "Survey submitted"
+msgstr "问卷已提交"
+
+#: survey/templates/survey/confirm.html:10
+msgid "Thanks! Your answers have been saved"
+msgstr "谢谢！您的回答已保存"
+
+#: survey/templates/survey/confirm.html:14
+msgid "You can always come back and change them."
+msgstr "您可以随时回来修改它们"
+
+#: survey/templates/survey/list.html:6
+msgid "Welcome to the Django Survey app"
+msgstr "欢迎来到 Django 问卷APP"
+
+#: survey/templates/survey/list.html:10
+msgid "Take the Survey"
+msgstr "开始本问卷"
+
+#: survey/templates/survey/survey.html:44
+msgid "Answer this part"
+msgstr "回答本部分"
+
+#: survey/templates/survey/survey.html:57
+msgid "Questions"
+msgstr "问题"
+
+#: survey/templates/survey/survey.html:66
+msgid "I'm done!"
+msgstr "完成！"

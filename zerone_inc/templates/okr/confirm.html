@@ -1,4 +1,4 @@
-{% extends 'survey/base.html' %}
+{% extends 'okr/base.html' %}
 {% load i18n %}
 
 {% block title %}{% trans "Survey submitted" %}{% endblock title %}
@@ -18,7 +18,7 @@
   <div class="row">
 
   <div class="col-sm-12">
-    <a class="btn btn-primary" href="{% url 'home' %}" role="button">Go Home</a>
+    <a class="btn btn-primary" href="{% url 'okr:survey-list' %}" role="button">Go Home</a>
     <!-- Your Stuff: Custom user template urls -->
   </div>
 

@@ -1,0 +1,334 @@
+[
+{
+ "model": "auth.user",
+ "pk": 1,
+ "fields": {
+  "password": "pbkdf2_sha256$30000$9I20UakFTpfx$y7eJAH51Uet6UY3A56g+JLEiG4qvks9XyGZnXy5B0E4=",
+  "last_login": "2017-03-19T11:21:55.386Z",
+  "is_superuser": true,
+  "username": "adminebd",
+  "first_name": "",
+  "last_name": "",
+  "email": "",
+  "is_staff": true,
+  "is_active": true,
+  "date_joined": "2017-03-19T11:14:45.991Z",
+  "groups": [],
+  "user_permissions": []
+ }
+},
+{
+ "model": "survey.survey",
+ "pk": 4,
+ "fields": {
+  "name": "Survey Submission",
+  "description": "Our week ends Monday at 7:00 PM. \r\n\r\nI must have your report by 7:01 PM Monday. Send it now, avoid the rush.",
+  "is_published": true,
+  "need_logged_user": false,
+  "editable_answers": true,
+  "display_method": 0,
+  "template": null
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 9,
+ "fields": {
+  "text": "Email Address",
+  "order": 1,
+  "required": true,
+  "category": null,
+  "survey": 4,
+  "type": "short-text",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 10,
+ "fields": {
+  "text": "Your Name",
+  "order": 2,
+  "required": true,
+  "category": null,
+  "survey": 4,
+  "type": "short-text",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 11,
+ "fields": {
+  "text": "Date",
+  "order": 3,
+  "required": true,
+  "category": null,
+  "survey": 4,
+  "type": "short-text",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 12,
+ "fields": {
+  "text": "STARTS\r\n\r\nWho? What? Where?",
+  "order": 4,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "text",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 13,
+ "fields": {
+  "text": "Donations",
+  "order": 5,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "integer",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 14,
+ "fields": {
+  "text": "Books Sold ",
+  "order": 6,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "integer",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 15,
+ "fields": {
+  "text": "Your Total Volunteer hours for this week",
+  "order": 7,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "integer",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 16,
+ "fields": {
+  "text": "Your Volunteer Activities this week.",
+  "order": 8,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "select-multiple",
+  "choices": "Calls, Letters, Files, Admin, Talking to about next service, Recoveries, Hiring, Events, Promotion"
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 17,
+ "fields": {
+  "text": "Included in the above hours; how many of those above hours were on filing",
+  "order": 9,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "integer",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 18,
+ "fields": {
+  "text": "New Hires",
+  "order": 10,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "text",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 19,
+ "fields": {
+  "text": "Charitable Donations",
+  "order": 11,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "integer",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.question",
+ "pk": 20,
+ "fields": {
+  "text": "Events held\r\n\r\nWhat? Where? Products gotten?",
+  "order": 12,
+  "required": false,
+  "category": null,
+  "survey": 4,
+  "type": "text",
+  "choices": ""
+ }
+},
+{
+ "model": "survey.response",
+ "pk": 1,
+ "fields": {
+  "created": "2020-02-04T06:39:22.371Z",
+  "updated": "2020-02-04T15:20:34.472Z",
+  "survey": 4,
+  "user": [
+   "adminebd"
+  ],
+  "interview_uuid": "aad9ec9662b148aa97e79b0a985ee9a0"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 1,
+ "fields": {
+  "question": 9,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.380Z",
+  "updated": "2020-02-04T15:20:34.475Z",
+  "body": "user@example.com"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 2,
+ "fields": {
+  "question": 10,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.386Z",
+  "updated": "2020-02-04T15:20:34.478Z",
+  "body": "Ed Davison"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 3,
+ "fields": {
+  "question": 11,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.389Z",
+  "updated": "2020-02-04T15:20:34.481Z",
+  "body": "2020-02-03"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 4,
+ "fields": {
+  "question": 12,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.391Z",
+  "updated": "2020-02-04T15:20:34.483Z",
+  "body": null
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 5,
+ "fields": {
+  "question": 13,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.393Z",
+  "updated": "2020-02-04T15:20:34.488Z",
+  "body": "0"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 6,
+ "fields": {
+  "question": 14,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.396Z",
+  "updated": "2020-02-04T15:20:34.492Z",
+  "body": "0"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 7,
+ "fields": {
+  "question": 15,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.398Z",
+  "updated": "2020-02-04T15:20:34.497Z",
+  "body": "8"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 8,
+ "fields": {
+  "question": 16,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.400Z",
+  "updated": "2020-02-04T15:20:34.501Z",
+  "body": "['Admin', 'Calls', 'Events']"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 9,
+ "fields": {
+  "question": 17,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.402Z",
+  "updated": "2020-02-04T15:20:34.504Z",
+  "body": "0"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 10,
+ "fields": {
+  "question": 18,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.404Z",
+  "updated": "2020-02-04T15:20:34.508Z",
+  "body": null
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 11,
+ "fields": {
+  "question": 19,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.407Z",
+  "updated": "2020-02-04T15:20:34.510Z",
+  "body": "100"
+ }
+},
+{
+ "model": "survey.answer",
+ "pk": 12,
+ "fields": {
+  "question": 20,
+  "response": 1,
+  "created": "2020-02-04T06:39:22.409Z",
+  "updated": "2020-02-04T15:20:34.514Z",
+  "body": ""
+ }
+}
+]

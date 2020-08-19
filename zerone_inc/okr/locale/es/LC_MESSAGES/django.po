@@ -1,0 +1,378 @@
+# django-survey-and-report's i18n file
+# This file is distributed under the MIT license.
+# Javier Ordóñez <ordonja@gmail.com>, 2018.
+# Anton Melser <melser.anton@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 04:01+0000\n"
+"PO-Revision-Date: 2018-10-06 20:42+0000\n"
+"Last-Translator: Javier Ordóñez <>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Translated-Using: django-rosetta 0.9.0\n"
+
+#: dev/templates/base.html:3
+msgid "en"
+msgstr "es"
+
+#: dev/templates/base.html:5
+msgid "DEVELOPMENT django-Survey"
+msgstr "DESARROLLO django-Survey"
+
+#: survey/actions.py:13
+#, python-format
+msgid "%(count)d survey was successfully marked as published."
+msgid_plural "%(count)d surveys were successfully marked as published"
+msgstr[0] "encuesta %(count)d se marcó exitosamente como publicada."
+msgstr[1] "encuestas %(count)d se marcaron exitosamente como publicadas."
+
+#: survey/actions.py:20
+msgid "Mark selected surveys as published"
+msgstr "Marca las encuestas seleccionadas como publicadas"
+
+#: survey/exporter/csv/survey2csv.py:38
+msgid "Anonymous"
+msgstr "Anónimo"
+
+#: survey/exporter/csv/survey2csv.py:71
+msgid "user"
+msgstr "usuario"
+
+#: survey/exporter/csv/survey2csv.py:115
+msgid "Export to CSV"
+msgstr "Exportación al formato CSV"
+
+#: survey/exporter/tex/question2tex.py:64
+msgid "with"
+msgstr "con"
+
+# there is a mistake in the EN singular and plural cases.
+# Entrevistado reffers to all surveyed.
+#: survey/exporter/tex/question2tex.py:66
+#, python-format
+msgid "%(min_cardinality)d respondants or more"
+msgid_plural "%(min_cardinality)d respondant or more"
+msgstr[0] "%(min_cardinality)d entrevistado o más"
+msgstr[1] "%(min_cardinality)d entrevistados o más."
+
+#: survey/exporter/tex/question2tex.py:78
+msgid "excluding"
+msgstr "excluyendo"
+
+#: survey/exporter/tex/question2tex.py:83
+#: survey/exporter/tex/question2tex.py:117
+#: survey/exporter/tex/question2tex.py:120
+msgid "and"
+msgstr "y"
+
+#: survey/exporter/tex/question2tex.py:114
+#: survey/exporter/tex/question2tex.py:115
+msgid "or"
+msgstr "o"
+
+#: survey/exporter/tex/question2tex.py:129
+msgid "Repartition of answers"
+msgstr "Distribución de respuestas"
+
+#: survey/exporter/tex/question2tex_chart.py:72
+msgid "Left blank"
+msgstr "Dejada en blanco"
+
+#: survey/exporter/tex/question2tex_chart.py:117
+#: survey/exporter/tex/question2tex_sankey.py:40
+msgid "for the question"
+msgstr "para la pregunta"
+
+#: survey/exporter/tex/question2tex_chart.py:127
+msgid "No answers for this question."
+msgstr "No hay respuestas para esta pregunta."
+
+#: survey/exporter/tex/question2tex_raw.py:26
+msgid "Participant"
+msgstr "Participante"
+
+#  as in "opposite of right"
+#: survey/exporter/tex/question2tex_sankey.py:40
+msgid "left"
+msgstr "izquierda"
+
+#: survey/exporter/tex/question2tex_sankey.py:42
+msgid "in relation with the question"
+msgstr "en relación con la pregunta"
+
+# as in "opposite of left"
+#: survey/exporter/tex/question2tex_sankey.py:44
+msgid "right"
+msgstr "derecha"
+
+#: survey/exporter/tex/survey2tex.py:32
+msgid "Cannot generate PDF, we need 'xelatex' to be installed."
+msgstr ""
+
+#: survey/exporter/tex/survey2tex.py:80
+msgid "We could not render a chart because the type"
+msgstr "no pudimos generar un gráfico porque el tipo"
+
+#: survey/exporter/tex/survey2tex.py:83
+msgid "is not a standard type nor the path to an importable valid Question2Tex child class. Choose between 'raw', 'sankey', 'pie', 'cloud', 'square', 'polar' or 'package.path.MyQuestion2TexCustomClass'"
+msgstr "no es un tipo estándar ni ruta a una subclase importable válida de Question2Tex. Escoje entre 'raw', 'sankey', 'pie', 'cloud', 'square', 'polar' o 'package.path.MyQuestion2TexCustomClass'"
+
+#: survey/exporter/tex/survey2tex.py:157
+msgid "No questions to display in this survey."
+msgstr "No hay preguntas para mostrar en esta encuesta."
+
+#: survey/exporter/tex/survey2tex.py:187
+msgid "Cannot export multiple PDF, choose only one."
+msgstr "No se pueden exportar varios PDF, elija solo uno."
+
+#: survey/exporter/tex/survey2tex.py:196
+#, python-format
+msgid "Error during PDF generation: %s"
+msgstr "Error durante la generación del PDF: %s"
+
+#: survey/exporter/tex/survey2tex.py:203
+msgid "Export to PDF"
+msgstr "Exportación al formato PDF"
+
+#: survey/models/answer.py:23
+msgid "Question"
+msgstr "Pregunta"
+
+#: survey/models/answer.py:24
+msgid "Response"
+msgstr "Respuesta"
+
+#: survey/models/answer.py:25 survey/models/response.py:27
+msgid "Creation date"
+msgstr "Fecha de creación"
+
+#: survey/models/answer.py:26 survey/models/response.py:28
+msgid "Update date"
+msgstr "Fecha de actualización"
+
+#: survey/models/answer.py:27
+msgid "Content"
+msgstr "Contenido"
+
+#: survey/models/category.py:12 survey/models/survey.py:27
+msgid "Name"
+msgstr "Nombre"
+
+#: survey/models/category.py:13 survey/models/question.py:80
+#: survey/models/response.py:29
+msgid "Survey"
+msgstr "Encuesta"
+
+#: survey/models/category.py:14
+msgid "Display order"
+msgstr "Orden de presentación"
+
+#: survey/models/category.py:15 survey/models/survey.py:28
+msgid "Description"
+msgstr "Descripción"
+
+#: survey/models/category.py:19
+msgid "category"
+msgstr "categoría"
+
+#: survey/models/category.py:20
+msgid "categories"
+msgstr "categorías"
+
+# "if the question type" repeated in english original
+#: survey/models/question.py:23
+msgid ""
+"The choices field is only used if the question type\n"
+"if the question type is 'radio', 'select', or\n"
+"'select multiple' provide a comma-separated list of\n"
+"options for this question ."
+msgstr ""
+"El campo de opciones solo se usa si el tipo de pregunta\n"
+"es 'radio', 'select', o 'select multiple'. Proporciona una lista de opciones\n"
+"separadas por comas para esta pregunta."
+
+#: survey/models/question.py:63
+msgid "text (multiple line)"
+msgstr "texto (multilínea)"
+
+#: survey/models/question.py:64
+msgid "short text (one line)"
+msgstr "texto corto (una línea)"
+
+#: survey/models/question.py:65
+msgid "radio"
+msgstr "radio"
+
+#: survey/models/question.py:66
+msgid "select"
+msgstr "selecciona"
+
+#: survey/models/question.py:67
+msgid "Select Multiple"
+msgstr "Selección múltiple"
+
+#: survey/models/question.py:68
+msgid "Select Image"
+msgstr "Selecciona imagen"
+
+#: survey/models/question.py:69
+msgid "integer"
+msgstr "entero"
+
+#: survey/models/question.py:70
+msgid "float"
+msgstr ""
+
+#: survey/models/question.py:71
+msgid "date"
+msgstr ""
+
+#: survey/models/question.py:74
+msgid "Text"
+msgstr "Texto"
+
+#: survey/models/question.py:75
+msgid "Order"
+msgstr "Orden"
+
+#: survey/models/question.py:76
+msgid "Required"
+msgstr "Obligatorio"
+
+#: survey/models/question.py:78
+msgid "Category"
+msgstr "Categoría"
+
+#: survey/models/question.py:81
+msgid "Type"
+msgstr "Tipo"
+
+#: survey/models/question.py:82
+msgid "Choices"
+msgstr "Opciones"
+
+#: survey/models/question.py:85
+msgid "question"
+msgstr "pregunta"
+
+#: survey/models/question.py:86
+msgid "questions"
+msgstr "preguntas"
+
+#: survey/models/response.py:30
+msgid "User"
+msgstr "Usuario"
+
+#: survey/models/response.py:31
+msgid "Interview unique identifier"
+msgstr "Identificador único de entrevista"
+
+#: survey/models/response.py:34
+msgid "Set of answers to surveys"
+msgstr "Conjunto de respuestas a encuestas"
+
+#: survey/models/response.py:35
+msgid "Sets of answers to surveys"
+msgstr "Conjuntos de respuestas a encuestas"
+
+#: survey/models/survey.py:22
+msgid "By question"
+msgstr "Por pregunta"
+
+#: survey/models/survey.py:23
+msgid "By category"
+msgstr "Por categoría"
+
+#: survey/models/survey.py:24
+msgid "All in one page"
+msgstr "Todo en una sola página"
+
+#: survey/models/survey.py:29
+msgid "Users can see it and answer it"
+msgstr "Los usuarios pueden ver y responder"
+
+#: survey/models/survey.py:30
+msgid "Only authenticated users can see it and answer it"
+msgstr "Solo usuarios autenticados pueden ver y responder"
+
+#: survey/models/survey.py:31
+msgid "Users can edit their answers afterwards"
+msgstr "Los usuarios pueden editar sus respuestas"
+
+#: survey/models/survey.py:33
+msgid "Display method"
+msgstr "Método de visualización"
+
+#: survey/models/survey.py:35
+msgid "Template"
+msgstr "Plantilla"
+
+#: survey/models/survey.py:36
+msgid "Publication date"
+msgstr "Fecha de publication"
+
+#: survey/models/survey.py:37
+msgid "Expiration date"
+msgstr "Fecha de borrado"
+
+#: survey/models/survey.py:40
+msgid "survey"
+msgstr "encuesta"
+
+#: survey/models/survey.py:41
+msgid "surveys"
+msgstr "encuestas"
+
+#: survey/templates/survey/completed.html:4
+#: survey/templates/survey/completed.html:7
+msgid "Survey completed"
+msgstr "Encuesta completada"
+
+#: survey/templates/survey/completed.html:8
+msgid "Sorry! Your already replied to our survey"
+msgstr "Lo sentimos, pero ya has respondido a nuestra encuesta"
+
+#: survey/templates/survey/completed.html:9
+msgid "Back to survey list"
+msgstr "Regresa a la lista de encuesta"
+
+#: survey/templates/survey/confirm.html:4
+#: survey/templates/survey/confirm.html:7
+msgid "Survey submitted"
+msgstr "Encuesta enviada"
+
+#: survey/templates/survey/confirm.html:10
+msgid "Thanks! Your answers have been saved"
+msgstr "¡Gracias¡ Hemos guardado tus respuestas"
+
+#: survey/templates/survey/confirm.html:14
+msgid "You can always come back and change them."
+msgstr "Siempre puedes regresar y hacer cambios."
+
+#: survey/templates/survey/list.html:6
+msgid "Welcome to the Django Survey app"
+msgstr "Bienvenido a Django Survey"
+
+#: survey/templates/survey/list.html:10
+msgid "Take the Survey"
+msgstr "Toma la encuesta"
+
+#: survey/templates/survey/survey.html:44
+msgid "Answer this part"
+msgstr "Reponde esta sección"
+
+#: survey/templates/survey/survey.html:57
+msgid "Questions"
+msgstr "Preguntas"
+
+#: survey/templates/survey/survey.html:66
+msgid "I'm done!"
+msgstr "¡Terminé!"

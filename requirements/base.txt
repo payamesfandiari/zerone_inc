@@ -20,6 +20,3 @@ djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
 
 ### Slack
 slackclient
-
-### Survey and Reporting tools
-django-survey-and-report
