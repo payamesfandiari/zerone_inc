@@ -42,6 +42,7 @@ class Survey(models.Model):
         verbose_name = _("survey")
         verbose_name_plural = _("surveys")
 
+
     def __str__(self):
         return str(self.name)
 
