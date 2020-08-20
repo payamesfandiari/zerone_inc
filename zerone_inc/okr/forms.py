@@ -8,6 +8,7 @@ from django.conf import settings
 from django.forms import models
 from django.urls import reverse
 from django.utils.text import slugify
+from crispy_forms.helper import FormHelper
 
 from .models import Answer, Category, Question, Response, Survey
 from .signals import survey_completed
@@ -44,11 +45,17 @@ class ResponseForm(models.ModelForm):
         """ Expects a survey object to be passed in initially """
         self.survey = kwargs.pop("survey")
         self.user = kwargs.pop("user")
+
         try:
             self.step = int(kwargs.pop("step"))
         except KeyError:
             self.step = None
         super(ResponseForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-lg-4'
+        self.helper.field_class = 'col-lg-6'
         self.uuid = uuid.uuid4().hex
 
         self.categories = self.survey.non_empty_categories()
@@ -242,10 +249,9 @@ class ResponseForm(models.ModelForm):
             kwargs["widget"] = widget
         field = self.get_question_field(question, **kwargs)
         field.widget.attrs["category"] = question.category.name if question.category else ""
-
         if question.type == Question.DATE:
             field.widget.attrs["class"] = "date"
-        # logging.debug("Field for %s : %s", question, field.__dict__)
+
         self.fields["question_%d" % question.pk] = field
 
     def has_next_step(self):
