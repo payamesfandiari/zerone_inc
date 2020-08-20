@@ -12,7 +12,7 @@ class User(AbstractUser):
     name = CharField(_("Name of User"), blank=True, max_length=255)
     team_id = CharField(_("Team ID"), blank=True, null=True, max_length=999)
     slack_id = CharField(_("Slack ID"), blank=True, null=True, max_length=999)
-    title = CharField(_("Team ID"), blank=True, null=True, max_length=999)
+    title = CharField(_("Title"), blank=True, null=True, max_length=999)
 
     def get_absolute_url(self):
         """Get url for user's detail view.
