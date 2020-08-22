@@ -42,7 +42,6 @@ class Survey(models.Model):
         verbose_name = _("survey")
         verbose_name_plural = _("surveys")
 
-
     def __str__(self):
         return str(self.name)
 
@@ -68,7 +67,6 @@ class Survey(models.Model):
 
     def is_all_in_one_page(self):
         return self.display_method == self.ALL_IN_ONE_PAGE
-
 
 
 class SurveyForUser(models.Model):
