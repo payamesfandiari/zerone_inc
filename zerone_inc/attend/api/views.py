@@ -36,7 +36,7 @@ class AttendanceView(APIView):
         client = slack.WebClient(token=settings.SLACK_BOT_USER_TOKEN)
         json_dict = request.POST
         op = json_dict['text'].strip()
-        user = User.objects.get(email=json_dict['user_name'])
+        user = User.objects.get(username=json_dict['user_name'])
         channel = json_dict['channel_id']
 
         if op == 'in':
