@@ -26,7 +26,7 @@ class AttendanceView(APIView):
     def check_permissions(self, request):
         json_dict = request.POST
         for permission in self.get_permissions():
-            if json_dict.get != settings.SLACK_VERIFICATION_TOKEN:
+            if json_dict.get('token', '') != settings.SLACK_VERIFICATION_TOKEN:
                 self.permission_denied(
                     request, message=getattr(permission, 'message', None)
                 )
