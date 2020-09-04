@@ -1,6 +1,7 @@
 import redis
 import slack
 import logging
+from django.shortcuts import reverse
 from django.utils import timezone, datetime_safe
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -86,7 +87,7 @@ class AttendanceView(APIView):
                 response_msg = "Are you sure you had logged in?<@%s>" % user.name
 
         elif op == 'dashboard':
-            response_msg = ":wave:, Not implemented yet <@%s>" % user.name
+            response_msg = ":wave:, Go to this page :point_right: %s" % "s"
         else:
             response_msg = """Use the command like this : `/attend [in | out]`"""
         client.chat_postMessage(channel=channel, text=response_msg)

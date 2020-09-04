@@ -84,8 +84,7 @@ class ListAttendance(LoginRequiredMixin, TemplateView):
             day=1).strftime('%B %Y')
         if qs.count() > 0:
             context['attendance_list'] = qs
-            context['attendance_overall'] = qs.aggregate(Sum('stay_per_day'))['stay_per_day__sum'].seconds / (
-                    192 * 3600)
+            context['attendance_overall'] = round(sum([i['stay_per_day'].seconds for i in qs]) / (192 * 3600),3)
             return context
         else:
             context['attendance_list'] = None
