@@ -14,7 +14,7 @@ urlpatterns = [
                   path("users/", include("zerone_inc.users.urls", namespace="users")),
                   path("accounts/", include("allauth.urls")),
                   # Your stuff: custom urls includes go here
-                  path("slack/attend/", include("zerone_inc.attend.urls", namespace="attend")),
+                  path("slack/", include("zerone_inc.attend.urls", namespace="attend")),
                   path("surveys/", include("zerone_inc.okr.urls", namespace="okr")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
