@@ -21,7 +21,7 @@ class ListAttendance(LoginRequiredMixin, TemplateView):
     date_field = 'sign_in'
 
     def get_queryset(self):
-        return Attendance.objects.filter(user=self.request.user)
+        return Attendance.objects.filter(user=self.request.user).order_by('sign_in')
 
     def get_date_range(self, year, month) -> tuple:
         """Return the year for which this view should display data."""

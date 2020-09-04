@@ -121,7 +121,7 @@ class AttendanceDashboard(ListAPIView):
 
     def get(self, request, *args, **kwargs):
         start_date, end_date = self.get_date_range()
-        queryset = self.filter_queryset(self.get_queryset()).filter(sign_in__lte=end_date, sign_in__gte=start_date)
+        queryset = self.get_queryset().filter(sign_in__lte=end_date, sign_in__gte=start_date).order_by('sign_in')
         serializer = self.get_serializer(queryset, many=True)
         return Response(data={
             'data': serializer.data,
