@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+  {{ block.super }}
+  {% block extracss %}
+
+  {% endblock %}
+{% endblock %}
+{% block content %}
+  <section class="team-grid" id="team">
+  <div class="container" id="wrap">
+    {% block wrapper %}{% endblock %}
+
+      {% block body %}
+
+      {% endblock %}
+
+  </div>
+  </section>
+{% endblock content %}
+
+
+{% block javascript %}
+  {{ block.super }}
+  {% block extrajs %}
+
+  {% endblock %}
+{% endblock %}

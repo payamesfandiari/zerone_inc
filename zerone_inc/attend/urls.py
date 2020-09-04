@@ -1,9 +1,12 @@
 from django.urls import path
 
-from zerone_inc.attend.api.views import AttendanceView
+from .views import ListAttendance
+from .api.views import AttendanceDashboard, AttendanceView
 
 app_name = "attend"
 urlpatterns = [
     # path("", view=event_hook, name="attend_event"),
-    path("", view=AttendanceView.as_view())
+    path("", view=AttendanceView.as_view()),
+    path("dashboard/<int:year>/<int:month>/", ListAttendance.as_view(), name="dashboard"),
+    path("table/<int:year>/<int:month>/", view=AttendanceDashboard.as_view(), name="dashboard-table")
 ]

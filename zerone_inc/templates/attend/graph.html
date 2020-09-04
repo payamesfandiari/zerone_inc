@@ -1,0 +1,133 @@
+{% extends 'attend/base.html' %}
+
+{% block extracss %}
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+{% endblock %}
+
+{% block body %}
+  <div class="well row" id="container-main">
+    <div class="col-md-4 btn-cont d-flex justify-content-center align-content-center">
+      <a class="btn-slice" href="{% url 'attend:dashboard' prev_year prev_month %}">
+        <div class="top"><span>{{ prev_month_label }}</span></div>
+        <div class="bottom"><span>{{ prev_month_label }}</span></div>
+      </a>
+
+    </div>
+    <div id="intro" class="col-md-4 justify-content-center align-items-center">
+      <h3 class="text-uppercase text-center text-secondary">Your Attendance</h3>
+      <hr class="star-dark mb-5">
+      {% if attendance_overall %}
+        <div class="attendance-progress"></div>
+      {% else %}
+        <div class="well row" id="container-main">
+          <div class="col-md-12">
+            <h1 class="h1"> There is nothing here... </h1>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="col-md-4 btn-cont d-flex justify-content-center align-content-center">
+      <a class="btn-slice" href="{% url 'attend:dashboard' next_year next_month %}">
+        <div class="top"><span>{{ next_month_label }}</span></div>
+        <div class="bottom"><span>{{ next_month_label }}</span></div>
+      </a>
+    </div>
+  </div>
+  <hr class="star-dark mb-5">
+  {% if attendance_overall %}
+  <div class="well row" id="container-main">
+    <div class="col-md-12">
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Sign In Date</th>
+          <th>Sign Out Date</th>
+          <th>Sign In Persian</th>
+          <th>Sign Out Persian</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Sign In Date</th>
+          <th>Sign Out Date</th>
+          <th>Sign In Persian</th>
+          <th>Sign Out Persian</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}
+{% block extrajs %}
+  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+  <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  <script type="application/javascript">
+    $(document).ready(function () {
+      // progressbar.js@1.0.0 version is used
+// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+      function secondsToHms(d) {
+        d = Number(d);
+        let h = Math.floor(d / 3600);
+        let m = Math.floor(d % 3600 / 60);
+        let hDisplay = h > 0 ? h + " h," : "";
+        let mDisplay = m > 0 ? m + " m" : "";
+        return hDisplay + mDisplay;
+      }
+
+
+      let bar = new ProgressBar.SemiCircle(".attendance-progress", {
+        strokeWidth: 6,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        easing: 'easeInOut',
+        duration: 1400,
+        svgStyle: null,
+        text: {
+          value: '',
+          alignToBottom: false
+        },
+        from: {color: '#ED6A5A'},
+        to: {color: '#4ADBC8'},
+//  from: { color: '#B1C1C0', width: 1 },
+//  to: { color: '#CBD081', width: 5 },
+        // Set default step function for all animate calls
+        step: (state, bar) => {
+          bar.path.setAttribute('stroke', state.color);
+          var value = (bar.value() * 691200);
+          bar.setText(secondsToHms(value));
+          bar.text.style.color = state.color;
+        }
+      });
+
+      bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+      bar.text.style.fontSize = '1.5rem';
+
+      bar.animate({{ attendance_overall }});  // Number from 0.0 to 1.0
+
+      $('#example').DataTable({
+        "ajax": {
+          url: "{% url 'attend:dashboard-table' year month %}",
+          dataSrc: 'data'
+        },
+        "processing": true,
+        "columns": [
+          {"data": "id"},
+          {"data": "user"},
+          {"data": "sign_in"},
+          {"data": "sign_out"},
+          {"data": "sign_in_persian"},
+          {"data": "sign_out_persian"}
+        ]
+      });
+    });
+  </script>
+{% endblock %}

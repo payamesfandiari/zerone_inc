@@ -12,3 +12,6 @@ class Attendance(models.Model):
     sign_out = models.DateTimeField(null=True)
     sign_in_persian = models.CharField(max_length=999,null=True,blank=True)
     sign_out_persian = models.CharField(max_length=999,null=True,blank=True)
+
+    def __str__(self):
+        return f"{self.user.username}(in:{self.sign_in},out{self.sign_out})"
