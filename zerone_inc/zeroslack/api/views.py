@@ -1,7 +1,6 @@
 import redis
 import slack
 import logging
-from django.shortcuts import reverse
 from django.utils import timezone, datetime_safe
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -12,7 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 import jdatetime
-from zerone_inc.attend.models import Attendance
+from zerone_inc.zeroslack.models import Attendance
 from .serializers import AttendanceSerializer
 
 logger = logging.getLogger(__name__)

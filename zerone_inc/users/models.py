@@ -1,7 +1,14 @@
+import jdatetime
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from datetime import timedelta, date
+from django.conf import settings
+
+
+# from zerone_inc.zeroslack.models import TacoScoreBoard
 
 
 class User(AbstractUser):
@@ -22,3 +29,85 @@ class User(AbstractUser):
 
         """
         return reverse("users:detail", kwargs={"username": self.username})
+
+    def tacos_given_today(self):
+        num_tacos_give = self.awarding_user.filter(
+            taco_awarded_date=date.today()
+        ).count()
+        return num_tacos_give
+
+    def can_give_tacos(self):
+        if self.tacos_given_today() >= settings.NUMBER_OF_TACOS_PER_DAY:
+            return False
+        else:
+            return True
+
+    def tacos_left_to_give(self):
+        return settings.NUMBER_OF_TACOS_PER_DAY - self.tacos_given_today()
+
+    def award_a_taco(self, another_user, taco_reason):
+        if self.can_give_tacos():
+            other_user = User.objects.get(username=another_user)
+            self.awarding_user.create(
+                awarded_user=other_user,
+                reason=taco_reason,
+            )
+            other_user.taco_score.score += 1
+            other_user.taco_score.save()
+            return f"{self.username} awarded {another_user.username} with a Taco..."
+        else:
+            return f"{self.username} cannot award more tacos today..."
+
+    def get_today_sign_ins(self):
+        return self.attendance_set.filter(sign_in__date=date.today(), sign_out=None)
+
+    def check_if_already_signed_in(self):
+        todays_sign_ins = self.get_today_sign_ins()
+        if todays_sign_ins.count() > 0:
+            return True
+        else:
+            return False
+
+    def check_if_still_on(self):
+        pass
+
+    def check_if_signed_off(self):
+        pass
+
+    def sign_in(self):
+        out = {
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {"type": "mrkdwn", "text": f"Hey there <@{self.username}>!"},
+                    "accessory": {
+                        "type": "button",
+                        "text": {"type": "plain_text", "text": "Sign Out !"},
+                        "action_id": "sign_out_button_clicked"
+                    }
+                }
+            ],
+            "text": f"Hey there <@{self.username}>!"}
+        sign_in_datetime = timezone.localtime(timezone.now())
+        if self.check_if_already_signed_in():
+            return {"text": 'You have already signed in...Please sign out first and try again.'}
+        self.attendance_set.create(
+            sign_in=sign_in_datetime,
+            sign_in_persian=jdatetime.datetime.fromgregorian(datetime=sign_in_datetime,
+                                                             locale='fa_IR').strftime(
+                "%a, %d %b %Y %H:%M:%S")
+        )
+        return out
+
+    def sign_out(self):
+        sign_out_datetime = timezone.localtime(timezone.now())
+
+        if self.check_if_already_signed_in():
+            todays_sign_in = self.get_today_sign_ins().first()
+            todays_sign_in.sign_out = sign_out_datetime
+            todays_sign_in.sign_out_persian = jdatetime.datetime.fromgregorian(datetime=sign_out_datetime,
+                                                                               locale='fa_IR').strftime(
+                "%a, %d %b %Y %H:%M:%S")
+            todays_sign_in.save()
+            return {"text": f"Goodbye  <@{self.username}> :wave:. Take care."}
+        return {"text": f"Hmmmm...I don't think you have signed in <@{self.username}>!"}

@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from zerone_inc.attend.models import Attendance
+from zerone_inc.zeroslack.models import Attendance
 
 User = get_user_model()
 

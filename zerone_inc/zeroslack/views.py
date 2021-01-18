@@ -1,3 +1,7 @@
+from django.shortcuts import render
+import logging
+import re
+
 from django.db.models import F, Sum
 from django.db.models.fields import DateField
 from django.db.models.functions import Cast
@@ -9,11 +13,26 @@ from django.views.generic import TemplateView
 import jdatetime
 from .models import Attendance
 import logging
+from django.http import HttpRequest
+from django.views.decorators.csrf import csrf_exempt
+
+from slack_bolt.adapter.django import SlackRequestHandler
+# Create your views here.
+from .models import app
 
 logger = logging.getLogger(__name__)
 
-
 # Create your views here.
+handler = SlackRequestHandler(app=app)
+
+
+@csrf_exempt
+def events(request: HttpRequest):
+    return handler.handle(request)
+
+
+def oauth(request: HttpRequest):
+    return handler.handle(request)
 
 
 class ListAttendance(LoginRequiredMixin, TemplateView):
@@ -84,7 +103,7 @@ class ListAttendance(LoginRequiredMixin, TemplateView):
             day=1).strftime('%B %Y')
         if qs.count() > 0:
             context['attendance_list'] = qs
-            context['attendance_overall'] = round(sum([i['stay_per_day'].seconds for i in qs]) / (192 * 3600),3)
+            context['attendance_overall'] = round(sum([i['stay_per_day'].seconds for i in qs]) / (192 * 3600), 3)
             return context
         else:
             context['attendance_list'] = None

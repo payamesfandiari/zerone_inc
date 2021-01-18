@@ -78,8 +78,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "zerone_inc.users.apps.UsersConfig",
-    "zerone_inc.attend.apps.AttendConfig",
-    "zerone_inc.okr.apps.OkrConfig"
+    "zerone_inc.okr.apps.OkrConfig",
+    "zerone_inc.zeroslack.apps.ZeroslackConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -244,7 +244,7 @@ LOGGING = {
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+                      "%(process)d %(thread)d %(message)s"
         }
     },
     "handlers": {
@@ -256,7 +256,6 @@ LOGGING = {
     },
     "root": {"level": "INFO", "handlers": ["console"]},
 }
-
 
 # django-allauth
 # ------------------------------------------------------------------------------
@@ -286,16 +285,14 @@ REST_FRAMEWORK = {
 # ------------------------------------------------------------------------------
 
 
-SLACK_CLIENT_ID = env.str("SLACK_CLIENT_ID")
-SLACK_CLIENT_SECRET = env.str("SLACK_CLIENT_SECRET")
-SLACK_VERIFICATION_TOKEN = env.str("SLACK_VERIFICATION_TOKEN")
-SLACK_BOT_USER_TOKEN = env.str("SLACK_BOT_USER_TOKEN")
+# SLACK_CLIENT_ID = env.str("SLACK_CLIENT_ID")
+# SLACK_CLIENT_SECRET = env.str("SLACK_CLIENT_SECRET")
+SLACK_SIGNING_SECRET = env.str("SLACK_SIGNING_SECRET")
+SLACK_BOT_USER_TOKEN = env.str("SLACK_BOT_TOKEN")
 
 # Survey Path
 CSV_DIRECTORY = str(ROOT_DIR / "docs/")
 REDIS_URL = env.str("REDIS_URL")
-
-
 
 # Number of messages to display per page.
 MESSAGES_PER_PAGE = env.int("ROSETTA_MESSAGES_PER_PAGE", 10)
@@ -305,3 +302,5 @@ SURVEY_DEFAULT_PIE_COLOR = env.str("SURVEY_DEFAULT_PIE_COLOR", "red!50")
 CHOICES_SEPARATOR = env.str("CHOICES_SEPARATOR", ",")
 EXCEL_COMPATIBLE_CSV = False
 DEFAULT_SURVEY_PUBLISHING_DURATION = 7
+
+NUMBER_OF_TACOS_PER_DAY = 5
