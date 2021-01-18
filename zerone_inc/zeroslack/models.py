@@ -270,18 +270,7 @@ class DjangoOAuthStateStore(OAuthStateStore):
 
 app = App(
     signing_secret=settings.SLACK_SIGNING_SECRET,
-    installation_store=DjangoInstallationStore(
-        client_id=settings.SLACK_CLIENT_ID,
-        logger=logger,
-    ),
-    oauth_settings=OAuthSettings(
-        client_id=settings.SLACK_CLIENT_ID,
-        client_secret=settings.SLACK_CLIENT_SECRET,
-        state_store=DjangoOAuthStateStore(
-            expiration_seconds=120,
-            logger=logger,
-        ),
-    ),
+    token=settings.SLACK_BOT_USER_TOKEN
 )
 
 

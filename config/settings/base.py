@@ -285,8 +285,8 @@ REST_FRAMEWORK = {
 # ------------------------------------------------------------------------------
 
 
-SLACK_CLIENT_ID = env.str("SLACK_CLIENT_ID")
-SLACK_CLIENT_SECRET = env.str("SLACK_CLIENT_SECRET")
+# SLACK_CLIENT_ID = env.str("SLACK_CLIENT_ID")
+# SLACK_CLIENT_SECRET = env.str("SLACK_CLIENT_SECRET")
 SLACK_SIGNING_SECRET = env.str("SLACK_SIGNING_SECRET")
 SLACK_BOT_USER_TOKEN = env.str("SLACK_BOT_TOKEN")
 
