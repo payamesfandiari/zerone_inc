@@ -85,7 +85,7 @@ def attend_command(body, ack, say, command):
     elif sub_command.lower().strip() == 'out':
         what_to_say = user.sign_out()
     else:
-        what_to_say = {"text":"Are you trying to log in? Specify [in|out] please..."}
+        what_to_say = {"text": "Are you trying to log in? Specify [in|out] please..."}
 
     say(**what_to_say)
 
@@ -135,7 +135,7 @@ def action_button_click(body, ack, respond):
 
 @app.event("team_join")
 def ask_for_introduction(event, say):
-    welcome_channel_id = "C12345";
+    welcome_channel_id = "C12345"
     user_id = event["user"]["id"]
     text = f"Welcome to the team, <@{user_id}>! 🎉 You can introduce yourself in this channel."
     say(text=text, channel=welcome_channel_id)

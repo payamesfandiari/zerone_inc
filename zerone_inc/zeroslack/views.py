@@ -36,7 +36,7 @@ def oauth(request: HttpRequest):
 
 
 class ListAttendance(LoginRequiredMixin, TemplateView):
-    template_name = "attend/graph.html"
+    template_name = "zeroslack/graph.html"
     date_field = 'sign_in'
 
     def get_queryset(self):
