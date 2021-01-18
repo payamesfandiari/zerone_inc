@@ -1,4 +1,4 @@
-{% extends 'attend/base.html' %}
+{% extends 'zeroslack/base.html' %}
 
 {% block extracss %}
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
@@ -9,7 +9,7 @@
 {% block body %}
   <div class="well row" id="container-main">
     <div class="col-md-4 btn-cont d-flex justify-content-center align-content-center">
-      <a class="btn-slice" href="{% url 'attend:dashboard' prev_year prev_month %}">
+      <a class="btn-slice" href="{% url 'zeroslack:dashboard' prev_year prev_month %}">
         <div class="top"><span>{{ prev_month_label }}</span></div>
         <div class="bottom"><span>{{ prev_month_label }}</span></div>
       </a>
@@ -29,7 +29,7 @@
       {% endif %}
     </div>
     <div class="col-md-4 btn-cont d-flex justify-content-center align-content-center">
-      <a class="btn-slice" href="{% url 'attend:dashboard' next_year next_month %}">
+      <a class="btn-slice" href="{% url 'zeroslack:dashboard' next_year next_month %}">
         <div class="top"><span>{{ next_month_label }}</span></div>
         <div class="bottom"><span>{{ next_month_label }}</span></div>
       </a>
@@ -115,7 +115,7 @@
 
       $('#example').DataTable({
         "ajax": {
-          url: "{% url 'attend:dashboard-table' year month %}",
+          url: "{% url 'zeroslack:dashboard-table' year month %}",
           dataSrc: 'data'
         },
         "processing": true,
