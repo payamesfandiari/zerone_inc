@@ -292,7 +292,6 @@ SLACK_BOT_USER_TOKEN = env.str("SLACK_BOT_TOKEN")
 
 # Survey Path
 CSV_DIRECTORY = str(ROOT_DIR / "docs/")
-REDIS_URL = env.str("REDIS_URL")
 
 # Number of messages to display per page.
 MESSAGES_PER_PAGE = env.int("ROSETTA_MESSAGES_PER_PAGE", 10)
