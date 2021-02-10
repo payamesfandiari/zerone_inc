@@ -33,7 +33,7 @@ class ListAttendance(LoginRequiredMixin, TemplateView):
         year = self.kwargs.get('year', jdatetime.datetime.today().year)
         month = self.kwargs.get('month', jdatetime.datetime.today().month)
         start_date, end_date = get_date_range(year=year, month=month)
-        qs = self.request.user.get_length_of_stay_per_day(start_date, end_date)
+        qs = self.request.user.get_lenght_of_stay_in_month(start_date, end_date)
         context['next_month'] = month + 1
         context['next_year'] = year
         context['prev_month'] = month - 1
@@ -52,10 +52,8 @@ class ListAttendance(LoginRequiredMixin, TemplateView):
             year=context['prev_year'],
             month=context['prev_month'],
             day=1).strftime('%B %Y')
-        if qs.count() > 0:
-            context['attendance_list'] = qs
-            context['attendance_overall'] = round(sum([i['stay_per_day'].seconds for i in qs]) / (192 * 3600), 3)
+        if qs:
+            context['attendance_overall'] = round(qs.seconds / (192 * 3600), 3)
             return context
         else:
-            context['attendance_list'] = None
             return context

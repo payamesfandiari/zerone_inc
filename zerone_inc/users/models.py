@@ -1,7 +1,7 @@
 import jdatetime
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField, DateField, Sum, F
-from django.db.models.functions import Cast
+from django.db.models import CharField, DateField, Sum, F, DateTimeField
+from django.db.models.functions import Cast, Coalesce
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -115,8 +115,12 @@ class User(AbstractUser):
 
     def get_length_of_stay_per_day(self, start_date, end_date):
         return self.attendance_set.filter(sign_in__lte=end_date, sign_in__gte=start_date).annotate(
-            length_of_stay=F('sign_out') - F('sign_in'), day_of_work=Cast('sign_in', DateField())).values(
+            length_of_stay=Coalesce('sign_out', Cast(F('sign_in') + timedelta(hours=8), DateTimeField())) - F(
+                'sign_in'), day_of_work=Cast('sign_in', DateField())).values(
             'day_of_work').order_by('day_of_work').annotate(stay_per_day=Sum('length_of_stay'))
+
+    def get_lenght_of_stay_in_month(self, start_date, end_date):
+        return self.get_length_of_stay_per_day(start_date, end_date).aggregate(overall=Sum('stay_per_day'))['overall']
 
     def get_list_of_signins(self, start_date, end_date):
         return self.attendance_set.filter(sign_in__lte=end_date, sign_in__gte=start_date).order_by('sign_in')
