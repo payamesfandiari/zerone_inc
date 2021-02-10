@@ -1,6 +1,7 @@
 import jdatetime
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField
+from django.db.models import CharField, DateField, Sum, F
+from django.db.models.functions import Cast
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -111,3 +112,11 @@ class User(AbstractUser):
             todays_sign_in.save()
             return {"text": f"Goodbye  <@{self.username}> :wave:. Take care."}
         return {"text": f"Hmmmm...I don't think you have signed in <@{self.username}>!"}
+
+    def get_length_of_stay_per_day(self, start_date, end_date):
+        return self.attendance_set.filter(sign_in__lte=end_date, sign_in__gte=start_date).annotate(
+            length_of_stay=F('sign_out') - F('sign_in'), day_of_work=Cast('sign_in', DateField())).values(
+            'day_of_work').order_by('day_of_work').annotate(stay_per_day=Sum('length_of_stay'))
+
+    def get_list_of_signins(self, start_date, end_date):
+        return self.attendance_set.filter(sign_in__lte=end_date, sign_in__gte=start_date).order_by('sign_in')

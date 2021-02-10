@@ -1,24 +1,13 @@
-from django.shortcuts import render
-import logging
-import re
-
-from django.db.models import F, Sum
-from django.db.models.fields import DateField
-from django.db.models.functions import Cast
-from django.http import Http404
-from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.conf import settings
 from django.views.generic import TemplateView
 import jdatetime
-from .models import Attendance
 import logging
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 
 from slack_bolt.adapter.django import SlackRequestHandler
 # Create your views here.
-from .models import app
+from .models import app, get_date_range
 
 logger = logging.getLogger(__name__)
 
@@ -39,50 +28,12 @@ class ListAttendance(LoginRequiredMixin, TemplateView):
     template_name = "zeroslack/graph.html"
     date_field = 'sign_in'
 
-    def get_queryset(self):
-        return Attendance.objects.filter(user=self.request.user).order_by('sign_in')
-
-    def get_date_range(self, year, month) -> tuple:
-        """Return the year for which this view should display data."""
-        format = "%Y-%m"
-        datestr = f"{year}-{month}"
-        start_date = jdatetime.datetime.strptime(datestr, format).date()
-        end_date = start_date + jdatetime.timedelta(days=30)
-        try:
-            return start_date.togregorian(), end_date.togregorian()
-        except ValueError:
-            raise Http404('Invalid date string “%(datestr)s” given format “%(format)s”' % {
-                'datestr': datestr,
-                'format': format,
-            })
-
-    def get_if_have_next_month(self, current_month):
-        qs = self.get_queryset()
-        x = qs.values_list('sign_in').latest('sign_in')[0]
-        if current_month >= x.month:
-            return False
-        return True
-
-    def get_if_have_prev_month(self, current_month):
-        qs = self.get_queryset()
-        x = qs.values_list('sign_in').earlist('sign_in')[0]
-        if current_month >= x.month:
-            return True
-        return False
-
     def get_context_data(self, **kwargs):
         context = super(ListAttendance, self).get_context_data(**kwargs)
         year = self.kwargs.get('year', jdatetime.datetime.today().year)
         month = self.kwargs.get('month', jdatetime.datetime.today().month)
-        qs = self.get_queryset()
-        start_date, end_date = self.get_date_range(year=year, month=month)
-
-        qs = qs.filter(sign_in__lte=end_date, sign_in__gte=start_date) \
-            .annotate(length_of_stay=F('sign_out') - F('sign_in'),
-                      day_of_work=Cast('sign_in', DateField())) \
-            .values('day_of_work') \
-            .order_by('day_of_work') \
-            .annotate(stay_per_day=Sum('length_of_stay'))
+        start_date, end_date = get_date_range(year=year, month=month)
+        qs = self.request.user.get_length_of_stay_per_day(start_date, end_date)
         context['next_month'] = month + 1
         context['next_year'] = year
         context['prev_month'] = month - 1

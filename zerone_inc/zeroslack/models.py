@@ -1,13 +1,12 @@
+import jdatetime
 from django.db import models
 from django.db.models import Sum
 from django.contrib.auth import get_user_model
 import logging
 from django.conf import settings
-from slack_bolt import App
-from slack_bolt.authorization import AuthorizeResult
+from django.http import Http404
 from slack_sdk import WebClient
 from slack_bolt import App
-from slack_bolt.oauth.oauth_settings import OAuthSettings
 from logging import Logger
 from typing import Optional
 from uuid import uuid4
@@ -16,12 +15,25 @@ from django.utils import timezone
 from slack_sdk.oauth import InstallationStore, OAuthStateStore
 from slack_sdk.oauth.installation_store import Bot, Installation
 
-import re
-
 logger = logging.getLogger(__name__)
 
 # Create your models here.
 User = get_user_model()
+
+
+def get_date_range(year, month) -> tuple:
+    """Return the year for which this view should display data."""
+    format = "%Y-%m"
+    datestr = f"{year}-{month}"
+    start_date = jdatetime.datetime.strptime(datestr, format).date()
+    end_date = start_date + jdatetime.timedelta(days=30)
+    try:
+        return start_date.togregorian(), end_date.togregorian()
+    except ValueError:
+        raise Http404('Invalid date string “%(datestr)s” given format “%(format)s”' % {
+            'datestr': datestr,
+            'format': format,
+        })
 
 
 class Attendance(models.Model):
@@ -322,6 +334,8 @@ def update_all_users(body, ack, say, client: WebClient):
         if in_user.password is None:
             in_user.set_password('1qazxsw@')
         in_user.save()
+        if not hasattr(in_user, 'taco_score'):
+            TacoScoreBoard.objects.create(user=in_user, score=0)
 
     say('Thanks...')
 
@@ -337,6 +351,38 @@ def action_button_click(body, ack, respond):
 
     what_to_say = user.sign_out()
     respond(what_to_say['text'], replace_original=True)
+
+
+@app.message(":taco:")
+def handle_taco_giving(client, message, say, ack):
+    import re
+    regex = re.compile("<([@A-Z0-9]+)?>")
+    logger.info(message)
+    ack()
+    user_id = f"@{message['user']}"
+    awarded_user = re.findall(regex, message['text'])
+    logger.info(f"{awarded_user}")
+
+    if awarded_user:
+        awarded_user = awarded_user[0]
+        if user_id != awarded_user:
+            user_awarding = User.objects.get(slack_id=user_id[1:])
+            if not user_awarding.can_give_tacos():
+                say(f"<{user_id}> you have given {user_awarding.tacos_given_today()} tacos. Wait for tomorrow.")
+            else:
+                say(f"Hey everyone! <{user_id}> just awarded <{awarded_user}>")
+                user_awarded = User.objects.get(slack_id=awarded_user[1:])
+                user_awarding.award_a_taco(user_awarded, taco_reason=message['text'])
+                if user_awarding.can_give_tacos():
+                    client.chat_postMessage(channel=user_awarding.slack_id,
+                                            text=f"You have given {user_awarding.tacos_given_today()} tacos, "
+                                                 f"you still have {':taco:' * user_awarding.tacos_left_to_give()} to give.")
+                else:
+                    client.chat_postMessage(channel=user_awarding.slack_id,
+                                            text=f"You have given {user_awarding.tacos_given_today()} tacos, "
+                                                 f"wait for tomorrow please.")
+        else:
+            say(f"Well...That's awkward <{user_id}>. You cannot award yourself a taco!")
 
 
 @app.event("team_join")
